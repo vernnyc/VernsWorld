@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>border test</title>
+	<title>vernsworld</title>
 	<meta name="generator" content="BBEdit 12.6" />
 	<style>
 	
@@ -37,6 +37,7 @@
 			margin-left:0px;
 			margin-right:8px;
 			border:solid black 1px;
+			transition:0.3s;
 			
 		}
 		nav li:hover{
@@ -45,7 +46,7 @@
 		}
 		
 		.tooltiptext{
-			visibility:hidden;
+			opacity:0;
 			width:120px;
 			background-color:white;
 			color:blue;
@@ -56,15 +57,16 @@
 			left:390px;
 			z-index:1;
 			/*borrowed from w3schools*/
+			transition:0.3s;
 		}
 		
 		nav li:hover +.tooltiptext{
-			visibility:visible;
+			opacity:1;
 		}
 	</style>
 </head>
 <body>
-	<p>VernsWorld 5.2.7</p>
+	<p>VernsWorld 5.2.7.2</p>
 	<div class="slide">
 		<h1 id="greet">Greetings</h1>
 		Hello World! It's <span id="dowt">today</span>! <p>The site slowly evolves as I try things out.</p> 
@@ -74,35 +76,6 @@
 		<p>The old (really disorganized) site is <a href="http://www.panix.com/~vernonw">here</a>.</p>
 
 	</div>
-	
-		<script>
-			var today = new Date();              //get the date and time
-			var hour = today.getHours();         //extract the hour
-			var day = today.getDate();          //get the day (1-31)
-			var dow = today.getDay();           //get the day of the week (0=sun, 1=mon, etc)
-			var month = today.getMonth();       // get the month (0 = jan, 1=feb, etc)
-			var year = today.getFullYear();     // get the 4 digit year (2019)
-			var dayt = "";                       //day of week text as string
-			var msg = "";                         //message text as string
-			if (hour < 12) {                      // set the message based on the current hour
-				msg = "Morning";
-			} else if (hour >= 12 && hour < 17) {
-				msg = "Afternoon";
-			} else {
-				msg = "Evening";
-			}
-			const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-			const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-			dayt = days[dow] + ", " + months[month] + " " + day + ", " + year;  //full text including month day and year
-			var showday = document.getElementById("dowt");          //update the day of week text
-			showday.textContent = dayt;
-			var updateme = document.getElementById("greet");
-			document.title = msg + " message";
-			updateme.textContent = "Good " + msg + "!";                 // update the greet element with a new greeting
-			var metoo = document.getElementById("dayz");
-			metoo.textContent = 31 - day;                           //update the number of days till the planned update
-		</script>
-		
 	<nav>
 		<ul>
 			<li> Words</li>
@@ -119,6 +92,42 @@
 				</div>
 		</ul>
 	</nav>
+	<br>
+	<br>
+	<p><strong>Status</strong> : Vernon is probably <span id="vernact">wondering why you are not using JavaScript.</span> </p>
+		<script>
+			var today = new Date();              //get the date and time
+			var hour = today.getHours();         //extract the hour
+			var day = today.getDate();          //get the day (1-31)
+			var dow = today.getDay();           //get the day of the week (0=sun, 1=mon, etc)
+			var month = today.getMonth();       // get the month (0 = jan, 1=feb, etc)
+			var year = today.getFullYear();     // get the 4 digit year (2019)
+			var dayt = "";                       //day of week text as string
+			var msg = "";                         //message text as string
+			if (hour < 12) {                      // set the message based on the current hour
+				msg = "Morning";
+			} else if (hour >= 12 && hour < 17) {
+				msg = "Afternoon";
+			} else {
+				msg = "Evening";
+			}
+			var actn = (hour/4)-((hour/4)%1);
+			const v_acts= ["sleeping.","looking for work.","coding.", "reading something","watching anime.","sitting and thinking","trying to sleep."]
+			const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+			const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+			dayt = days[dow] + ", " + months[month] + " " + day + ", " + year;  //full text including month day and year
+			var showday = document.getElementById("dowt");          //update the day of week text
+			showday.textContent = dayt;
+			var updateme = document.getElementById("greet");
+			document.title = msg + " message";
+			updateme.textContent = "Good " + msg + "!";                 // update the greet element with a new greeting
+			var metoo = document.getElementById("dayz");
+			metoo.textContent = 31 - day;                           //update the number of days till the planned update
+			var methree = document.getElementById("vernact");
+			methree.textContent = v_acts[actn];                    //update the vern action text
+		</script>
+		
+
 
 </body>
 </html>

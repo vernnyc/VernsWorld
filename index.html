@@ -63,10 +63,15 @@
 		nav li:hover +.tooltiptext{
 			opacity:1;
 		}
+		
+		li a{
+			display:block;
+			/* make the entire nav element clickable*/
+		}
 	</style>
 </head>
 <body>
-	<p>VernsWorld 5.2.7.2</p>
+	<p>VernsWorld 5.2.7.3</p>
 	<div class="slide">
 		<h1 id="greet">Greetings</h1>
 		Hello World! It's <span id="dowt">today</span>! <p>The site slowly evolves as I try things out.</p> 
@@ -97,7 +102,7 @@
 	<p><strong>Status</strong> : Vernon is probably <span id="vernact">wondering why you are not using JavaScript.</span> </p>
 		<script>
 			var today = new Date();              //get the date and time
-			var hour = today.getHours();         //extract the hour
+			var hour = today.getHours();         //extract the hour (0-23)
 			var day = today.getDate();          //get the day (1-31)
 			var dow = today.getDay();           //get the day of the week (0=sun, 1=mon, etc)
 			var month = today.getMonth();       // get the month (0 = jan, 1=feb, etc)
@@ -111,8 +116,8 @@
 			} else {
 				msg = "Evening";
 			}
-			var actn = (hour/4)-((hour/4)%1);
-			const v_acts= ["sleeping.","looking for work.","coding.", "reading something","watching anime.","sitting and thinking","trying to sleep."]
+			var actn = (hour/3)-((hour/3)%1);
+			const v_acts= ["sleeping.","dreaming.","looking for work.","applying for work.","coding, cleaning, or fixing something.", "reading something.","creating or consuming art.","trying to sleep."]
 			const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 			const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 			dayt = days[dow] + ", " + months[month] + " " + day + ", " + year;  //full text including month day and year

@@ -1,0 +1,6 @@
+
+#Redirect to https 
+#saving to GIT sans the dot so that it will be visible on the local OS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=302]

@@ -71,7 +71,7 @@
 	</style>
 </head>
 <body>
-	<p>VernsWorld 5.2.7.3</p>
+	<p>VernsWorld 5.3.1.0</p>  
 	<div class="slide">
 		<h1 id="greet">Greetings</h1>
 		Hello World! It's <span id="dowt">today</span>! <p>The site slowly evolves as I try things out.</p> 
@@ -107,6 +107,8 @@
 			var dow = today.getDay();           //get the day of the week (0=sun, 1=mon, etc)
 			var month = today.getMonth();       // get the month (0 = jan, 1=feb, etc)
 			var year = today.getFullYear();     // get the 4 digit year (2019)
+			var nextmonth = month+1;
+			if (nextmonth = 12) {nextmonth = 0}; //flip back to jan
 			var dayt = "";                       //day of week text as string
 			var msg = "";                         //message text as string
 			if (hour < 12) {                      // set the message based on the current hour
@@ -116,6 +118,9 @@
 			} else {
 				msg = "Evening";
 			}
+			function daysInMonth(nmonth, fyear) {               //stolen from stack overflow
+				return new Date(fyear, nmonth, 0).getDate();    // returns days in the month
+			}													// based on the next month
 			var actn = (hour/3)-((hour/3)%1);
 			const v_acts= ["sleeping.","dreaming.","looking for work.","applying for work.","coding, cleaning, or fixing something.", "reading something.","creating or consuming art.","trying to sleep."]
 			const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -127,7 +132,7 @@
 			document.title = msg + " message";
 			updateme.textContent = "Good " + msg + "!";                 // update the greet element with a new greeting
 			var metoo = document.getElementById("dayz");
-			metoo.textContent = 31 - day;                           //update the number of days till the planned update
+			metoo.textContent = daysInMonth(nextmonth, year) - day;                           //update the number of days till the planned update - correct for non 31 day months
 			var methree = document.getElementById("vernact");
 			methree.textContent = v_acts[actn];                    //update the vern action text
 		</script>

@@ -71,7 +71,7 @@
 	</style>
 </head>
 <body>
-	<p>VernsWorld 5.3.1.0</p>  
+	<p>VernsWorld 5.3.1.1</p>  
 	<div class="slide">
 		<h1 id="greet">Greetings</h1>
 		Hello World! It's <span id="dowt">today</span>! <p>The site slowly evolves as I try things out.</p> 
@@ -108,7 +108,7 @@
 			var month = today.getMonth();       // get the month (0 = jan, 1=feb, etc)
 			var year = today.getFullYear();     // get the 4 digit year (2019)
 			var nextmonth = month+1;
-			if (nextmonth = 12) {nextmonth = 0}; //flip back to jan
+			if (nextmonth >11) {nextmonth = 0}; //flip back to jan
 			var dayt = "";                       //day of week text as string
 			var msg = "";                         //message text as string
 			if (hour < 12) {                      // set the message based on the current hour

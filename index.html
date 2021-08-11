@@ -129,10 +129,13 @@
 			var msg = "";                         //message text as string
 			if (hour < 12) {                      // set the message based on the current hour
 				msg = "Morning";
+				document.getElementById("greet").style.color = "orange";
 			} else if (hour >= 12 && hour < 17) {
 				msg = "Afternoon";
+				document.getElementById("greet").style.color = "green";
 			} else {
 				msg = "Evening";
+				document.getElementById("greet").style.color = "blue";
 			}
 			function daysInMonth(nmonth, fyear) {               //stolen from stack overflow
 				return new Date(fyear, nmonth, 0).getDate();    // returns days in the month
@@ -147,6 +150,7 @@
 			var updateme = document.getElementById("greet");
 			document.title = msg + " message";
 			updateme.textContent = "Good " + msg + "!";                 // update the greet element with a new greeting
+			
 			var metoo = document.getElementById("dayz");
 			metoo.textContent = daysInMonth(nextmonth, year) - day;                           //update the number of days till the planned update - correct for non 31 day months
 			var methree = document.getElementById("vernact");
